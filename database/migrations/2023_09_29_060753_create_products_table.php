@@ -13,22 +13,41 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("category_id")->unsigned();
+            $table->string('name')->default('');
+            $table->text('description')->default('');
+            $table->string('product_type', 20);
+            $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->bigInteger("subcategory_id")->unsigned();
+            $table->unsignedBigInteger('subcategory_id')->nullable();
             $table->foreign('subcategory_id')->references('id')->on('subcategories');
-
-            $table->string("name");
-            $table->text("details");
-            $table->float("price",10,2);
-            $table->string("image");
-            $table->integer("quantity")->unsigned();
-            $table->integer("discount")->unsigned()->default(0);
-            $table->tinyInteger("active")->unsigned()->default(1);
-            $table->tinyInteger("status")->unsigned()->default(1);
+            $table->unsignedBigInteger('subsubcategory_id')->nullable();
+            $table->foreign('subsubcategory_id')->references('id')->on('subsubcategories');
+            $table->unsignedBigInteger('brand_id');
+            $table->foreign('brand_id')->references('id')->on('brands');
+            $table->string('sku')->unique();
+            $table->string('unit');
+            $table->string('color')->nullable();
+            $table->string('attributes', 255)->nullable();
+            $table->decimal('unit_price', 10, 2);
+            $table->decimal('purchase_price', 10, 2);
+            $table->decimal('selling_price', 10, 2);
+            $table->decimal('tax', 10, 2);
+            $table->string('tax_model');
+            $table->decimal('discount', 10, 2);
+            $table->string('discount_type');
+            $table->integer('total_quantity');
+            $table->integer('minimum_quantity');
+            $table->decimal('shipping_cost', 10, 2);
             $table->tinyInteger("featured")->unsigned()->default(0);
-
+            $table->string('search_tags')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->timestamps();
         });
+        
+
+
+       
     }
 
     /**

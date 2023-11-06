@@ -1933,7 +1933,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 37, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
 .primary-btn {
-  background-color: #fff;
+  background-color: #f6398d;
   border-radius: 20px;
   padding: 8px 35px;
   border: 1px solid transparent;
@@ -1941,6 +1941,7 @@ h1, h2, h3, h4, h5, h6 {
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  color: white;
 }
 
 /* line 45, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
@@ -4165,18 +4166,19 @@ label {
   line-height: 40px;
   padding: 0 40px;
   text-align: center;
-  background: #fff;
+  background: #f6398d;
   box-shadow: 2.828px 2.828px 15px 0px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   font-weight: 700;
   text-transform: uppercase;
   border-radius: 3px;
   position: relative;
+  color: white;
 }
 
 /* line 365, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
 .view-btn span {
-  color: #222222;
+  color: #ffffff;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;

@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('subcategories', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('category_id')->unsigned();
-            $table->foreign("category_id")->references('id')->on('categories');
-            $table->string('name');
+            $table->string('name', 100);
+
+            $table->bigInteger("category_id")->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete("cascade"); 
+
+            $table->string('icon', 250)->nullable();
+            $table->integer('priority')->nullable();
             $table->timestamps();
         });
     }

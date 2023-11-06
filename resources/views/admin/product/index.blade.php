@@ -1,77 +1,100 @@
-@extends('admin.dashboard')
+@extends('layouts.main')
 @section('content')
 
-<div class="container">
-    <div class="row"> 
+<div class="d-flex justify-content-between">
 
-        <div class="col-md-12 pt-5">
-            <div class="card ">
-                <!-- <div class="card-header">
-                    <h2>Laravel 10 Crud</h2>
-                </div> -->
-                <div class="card-body">
-                    <a href="{{ route('product.create') }}" class="btn btn-success btn-sm" >
-                        <i class="fa fa-plus" aria-hidden="true"></i> Add New content
-                    </a>
-                    
-                   
-                    <br />
-                    <br />
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                
-                                    <th style="width:300px">Name</th>
-                                    <th style="width:150px">Category</th>
-                                    <th style="width:150px">sub Category</th>
-                                    <th style="width:150px">price</th>
-                                    <th style="width:100px">image</th>
-                                    <th style="width:100px">quantity</th>
-                                    <th style="width:100px">discount</th>
-                                    <th style="width:100px">active</th>
-                                    <th style="width:100px">status</th>
-                                    <th style="width:500px">action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($product as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->category->name }}</td>
-                                    <td>{{ $item->subcategory->name }}</td>
-                                    <td>{{ $item->price }}</td>
-                                    <td>{{ $item->quantity }}</td>
-                                    <td>{{ $item->discount }}</td>
-                                    <td>{{ $item->active }}</td>
-                                    <td>{{ $item->status }}</td>
-                                    <td>{{ $item->action }}</td>
-                                    <td><img src="{{ asset('storage/' . $item->image) }}" alt="Image" width="100px" height="100px"></td>
+    <h2 class="text-dark" >Product List</h2>
+    <a href="{{route('product.create')}}" class="btn btn-outline-dark m-3"> +  </a>
 
-                                    <td>
-                                        <a href="{{ route('product.show', $item->id) }}" title="View content"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                        <a href="{{ route('product.edit', $item->id) }}" title="Edit content"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-
-                                        <form method="POST" action="{{ route('product.destroy',$item->id) }}" accept-charset="UTF-8" style="display:inline"  onsubmit="return confirm('Confirm delete?')">
-                                          @csrf 
-                                          @method('delete')
-                                           
-                                            <button type="submit" class="btn btn-danger btn-sm" title="Delete content">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
-                                            </button>
-
-                                        </form>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+
+
+<div style="background-color: white;">
+
+    <table class="table mt-3">
+        <thead style="background-color: #D2E9FB; color:black; border-top: 1px solid black; border-bottom: 1px solid black;">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Subcategory</th>
+                <th scope="col">Sub subcategory</th>
+                <th scope="col">Image</th>
+                <th scope="col">Price</th>
+                <th scope="col">Featured</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($product as $row)
+            <tr>
+
+                <td scope="row">{{$row->id}}</td>
+                <td scope="row">{{$row->name}}</td>
+                <td scope="row">{{$row->category->name}}</td>
+                <td scope="row">{{$row->subcategory->name}}</td>
+                <td scope="row">{{$row->subsubcategory->name}}</td>
+
+
+                <!-- <td style="width: 100px; height: 100px; text-align: center;">
+                    @forelse ($row->images as $image)
+
+                    <img style="width: 100%; height: 100%; object-fit: contain;" src="{{asset('storage/'.$image->name)}}" alt="">
+                    @empty
+                    <div class="alert alert-warning" role="alert">
+                        No Image Available
+                    </div>
+                    @endforelse
+                </td> -->
+
+                <td>
+                    @forelse ($row->images as $image)
+                    <a href="{{asset('storage/'.$image->name)}}" data-lightbox="product-{{$row->id}}">
+                        <img src="{{asset('storage/'.$image->name)}}" width="70px" alt="" loading="lazy">
+                    </a>
+                    @empty
+                    <div class="alert alert-warning" role="alert">
+                        No Image Available
+                    </div>
+                    @endforelse
+                </td>
+
+                <td scope="row">{{$row->purchase_price}}</td>
+
+                <th>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" {{ $row->featured == 1 ? 'checked' : '' }}>
+
+                    </div>
+                </th>
+
+
+                <td>
+                    <a class="btn btn-outline-primary" href="{{route('product.edit',$row->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+
+                    <a class="btn btn-outline-success" href="{{route('product.show',$row->id)}}"><i class="fa-solid fa-eye"></i></a>
+
+                    <form class="d-inline" onsubmit="return confirm('Are you sure?')" action="{{route('product.destroy',$row->id)}}" method="post">
+                        @csrf
+                        @method('delete')
+
+                        <button type="submit" class="btn btn-outline-danger" name="delete"><i class='fa-solid fa-trash'></i></button>
+                    </form>
+
+                </td>
+
+            </tr>
+
+            @empty
+
+            @endforelse
+
+        </tbody>
+    </table>
+</div>
+<hr>
+
+{{ $product->links() }}
+
 @endsection

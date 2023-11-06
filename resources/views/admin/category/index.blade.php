@@ -1,60 +1,83 @@
-@extends('admin.dashboard')
+@extends('layouts.main')
 @section('content')
-<h2 class="text-center text-primary mt-4">Category</h2>
-<div class="container">
-    <div class="row mt-4">
 
-        <div class="col-md-9">
-            
-                <div class="">
-                    
-                    <a href="{{ route('category.create') }}" class="btn btn-primary btn-sm" title="Add New Student">
-                        <i class="fa fa-plus" aria-hidden="true"></i>Add Category
-                    </a>
-                </div>
-             
-                    
-                 
-                    <div class="table-responsive">
-                        <table class="table table-center">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Image</th>
-                                    <th>Action</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($category as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td><img src="{{asset('storage/' . $item->image)}}" alt="" width="100px" height="100px"></td>
-                                   
 
-                                    <td>
-                                        <a href="{{ route('category.show', $item->id) }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                        <a href="{{ route('category.edit', $item->id) }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                                        <form method="POST" action="{{ route('category.destroy',$item->id) }}" accept-charset="UTF-8" style="display:inline" onsubmit="return confirm('Confirm delete?')">
-                                           @csrf
-                                           @method('delete')
-                                            <button type="submit" class="btn btn-danger btn-sm" title="Delete Student" >
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
-                                            </button>
-
-                                        </form>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-               
-            
-        </div>
-    </div>
+<div class="d-flex justify-content-between">
+    <h2 class="text-dark">Category List</h2>
+    <a href="{{route('category.create')}}" class="btn btn-outline-dark"> + </a>
 </div>
+
+
+<div style="background-color: white;">
+    <table class="table mt-3">
+
+        <thead style="background-color: #D2E9FB; color:black; border-top: 1px solid black; border-bottom: 1px solid black;" class="">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Slug</th>
+                <th scope="col">Icon</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Position</th>
+                <th scope="col">Home Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @forelse ($category as $row)
+            <tr>
+
+                <th scope="row">{{$row->id}}</th>
+                <th scope="row">{{$row->name}}</th>
+                <th scope="row">{{$row->slug}}</th>
+                <td style="width: 100px; height: 100px; text-align: center;">
+                    <img style="width: 100%; height: 100%; object-fit: contain;" src="{{asset('storage/')}}/{{$row->icon}}" alt="">
+                </td>
+                <th scope="row">{{$row->priority}}</th>
+                <th scope="row">{{$row->position}}</th>
+                <th>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" {{ $row->home_status == 1 ? 'checked' : '' }}>
+
+                    </div>
+                </th>
+
+
+                <td>
+                    <a class="btn btn-outline-primary" href="{{route('category.edit',$row->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+
+                    <a class="btn btn-outline-success" href="{{route('category.show',$row->id)}}"><i class="fa-solid fa-eye"></i></a>
+
+                    <form class="d-inline" onsubmit="return confirm('Are you sure?')" action="{{route('category.destroy',$row->id)}}" method="post">
+                        @csrf
+                        @method('delete')
+
+                        <button type="submit" class="btn btn-outline-danger" name="delete"><i class='fa-solid fa-trash'></i></button>
+                    </form>
+
+                </td>
+
+            </tr>
+
+
+            @empty
+
+            @endforelse
+
+        </tbody>
+    </table>
+</div>
+<hr>
+{{ $category->links() }}
+
+
+
+
+
+
+
+
+
 @endsection
