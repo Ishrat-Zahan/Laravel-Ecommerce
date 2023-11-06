@@ -140,11 +140,12 @@
             <div class="row">
                 <div class="col-lg-3  col-md-6 col-sm-6">
                     <div class="single-footer-widget">
-                        <h6>About Us</h6>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore dolore magna aliqua.
-                        </p>
+                        <h6>About</h6>
+                        <ul>
+                            <li><a style="color: #f41068;" href="">About Us</a></li>
+                            <li><a style="color: #f41068;" href="">Contact Info</a></li>
+                        </ul>
+                       
                     </div>
                 </div>
                 <div class="col-lg-3  col-md-6 col-sm-6">
@@ -200,8 +201,7 @@
 
                     <script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is
-                    made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+                    </script> All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i> <a href="https://colorlib.com/" target="_blank">IshratZahan</a>
                 </p>
 
             </div>
@@ -248,7 +248,11 @@
 
         gtag('config', 'UA-23581568-13');
     </script>
+
+
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7bf8b452ba54bc2d","version":"2023.4.0","b":1,"token":"cd0b4b3a733644fc843ef0b185f98241","si":100}' crossorigin="anonymous"></script>
+
+
     <script>
         $(document).ready(function() {
             $.ajaxSetup({
@@ -264,45 +268,48 @@
 
 
         $(document).ready(function() {
+
+
             $("#cartTotal").html(cart.totalItems());
+
+
             $(".lnr.lnr-cart").click(function() {
                 var productId = $(this).data("product-id");
-                // alert(productId);
-                let id = null;
-                let name = "";
-                let price = "";
-                let image = "";
-                let quantity = 1;
 
-                $.getJSON("{{ url('cart') }}/" + productId, function(d) {
-                    // console.log(d);
-                    id = d.id;
-                    name = d.name;
-                    price = d.selling_price;
-                    let images = [];
 
-                    d.images.forEach(function(image) {
-                        images.push(image.name);
+                const existingItem = cart.getItems().find(item => item.id === productId);
+
+                if (existingItem) {
+
+                    existingItem.quantity++;
+                } else {
+
+                    $.getJSON("{{ url('cart') }}/" + productId, function(d) {
+                        const id = d.id;
+                        const name = d.name;
+                        const price = d.selling_price;
+                        let images = [];
+
+                        d.images.forEach(function(image) {
+                            images.push(image.name);
+                        });
+
+                        const product = {
+                            'id': id,
+                            'name': name,
+                            'price': price,
+                            'image': images,
+                            'quantity': 1,
+                        };
+
+                        cart.addItem(product);
                     });
+                }
 
-
-                    let product = {
-                        'id': id,
-                        'name': name,
-                        'price': price,
-                        'image': images,
-                        'quantity': quantity,
-                    };
-
-                    //  console.log(product);
-                    cart.addItem(product);
-
-                    $("#cartTotal").html(cart.totalItems())
-
-                })
-
+                $("#cartTotal").html(cart.totalItems());
             });
         });
+
 
         function financial(x) {
             return Number.parseFloat(x).toFixed(2);
@@ -313,30 +320,30 @@
 
             let cartInfo = showItem.getItems();
             // console.log(cartInfo);
+
             let html = "";
             cartInfo.forEach(p => {
-                html +=
-                    `<tr>       
-                       <td>${p.name}</td>       
-                       <td style="width: 100px;">
 
-                            <div style="max-width: 100%; max-height: 100px; display: flex; align-items: center; justify-content: center;">
-                                <img style="max-width: 100%; max-height: 100%; object-fit: contain;" src="{{ asset('storage/') }}/${p.image}" class="img-fluid" alt="">
-                            </div>
+                html += `<tr>       
+                <td>${p.name}</td>       
+                <td style="width: 100px;">
+                    <div style="max-width: 100%; max-height: 100px; display: flex; align-items: center; justify-content: center;">
+                        <img style="max-width: 100%; max-height: 100%; object-fit: contain;" src="{{ asset('storage/') }}/${p.image}" class="img-fluid" alt="">
+                    </div>
+                </td>
+                <td class="price">${p.price}</td>
+                <td><input type="number" class="qu" name="quantity" value="${p.quantity}" min="1"></td>
+                <td class="itemtotal">${p.price}</td>
+                <td>
+                    <a href="#" class="removeItem" data-item='${p.id}'><i style="color: #DD5903; font-size: larger;" class="fa-solid fa-trash-can"></i></a>
+                </td>
 
-                        </td>
-                        <td class="price">${p.price}</td>
-                        <td><input type="number" class="qu" name="quantity" value="1" min="1"></td>
-                        <td class="itemtotal">${p.price}</td>
-
-                        <td>
-                            <a href="#" class="removeItem" data-item='${p.id}'><i style="color: #DD5903; font-size: larger;" class="fa-solid fa-trash-can"></i></a>
-                        </td>
-
-                    </tr>`;
+                </tr>`;
 
                 return html;
+
             })
+
             $("#dyn_tr").html(html);
 
 
@@ -364,8 +371,6 @@
 
         $(document).on('click', '.myorder', function(event) {
             event.preventDefault();
-
-
 
             let newcart = new Cart();
 
@@ -430,8 +435,6 @@
                     console.error(xhr.responseText)
                 }
             })
-
-
 
         })
     </script>

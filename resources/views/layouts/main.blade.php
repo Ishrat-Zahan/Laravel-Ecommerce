@@ -220,14 +220,24 @@
                             <div class="profile_info">
                                 <img src="{{asset('assets2/assets/img/client_img.png' ) }}" alt="#">
                                 <div class="profile_info_iner">
-                                    <p>Welcome Admin!</p>
-                                    <h5>Travor James</h5>
+                                    @if (Auth::check())
+                                    <p>Welcome </p>
+                                    <h5>{{ Auth::user()->name }}!</h5>
                                     <div class="profile_info_details">
                                         <a href="#">My Profile <i class="ti-user"></i></a>
                                         <a href="#">Settings <i class="ti-settings"></i></a>
-
                                     </div>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="dropdown-item" href="javascript:void(0)" onclick="event.preventDefault();this.closest('form').submit();">
+                                            {{ __('Log Out') }}
+                                        </a>
+                                    </form>
+                                    @else
+                                    <!-- Code for when no user is logged in -->
+                                    @endif
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -237,11 +247,11 @@
 
         <div class="main_content_iner ">
             <div class="container-fluid plr_30 body_white_bg pt_30">
-          
 
-                    @yield('content')
 
-           
+                @yield('content')
+
+
             </div>
         </div>
 

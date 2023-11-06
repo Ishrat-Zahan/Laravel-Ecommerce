@@ -1,65 +1,56 @@
 @extends('layouts.main')
 @section('content')
 
-<div class="container">
-    <div class="row"> 
 
-        <div class="col-md-12 pt-5">
-            <div class="card ">
-               
-                <div class="card-body">
-                    {{-- <a href="{{ route('order.create') }}" class="btn btn-success btn-sm" >
-                        <i class="fa fa-plus" aria-hidden="true"></i> Add New content
-                    </a> --}}
-                    <br />
-                    <br />
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                
-                                    <th style="width:100px">user_id</th>
-                                    <th style="width:200px">billing_address</th>
-                                    <th style="width:200px">shipping_address</th>
-                                    <th style="width:100px">total</th>
-                                    <th style="width:100px">comment</th>
-                                    <th style="width:100px">status</th>
-                                    <th style="width:300px">action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($order as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration}}</td>
-                                    <td>{{ $item->user_id}}</td>
-                                    <td>{{ $item->billing_address}}</td>
-                                    <td>{{ $item->shipping_address}}</td>
-                                    <td>{{ $item->total }}</td>
-                                    <td>{{ $item->comment }}</td>
-                                    <td>{{ $item->status }}</td>
-                                    <td>
-                                        <a href="{{ route('order.show', $item->id) }}" title="View content"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                        <a href="{{ route('order.edit', $item->id) }}" title="Edit content"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+<div class="d-flex justify-content-between">
+    <h2 class="text-dark">Order List</h2>
 
-                                        <form method="POST" action="{{ route('order.destroy',$item->id) }}" accept-charset="UTF-8" style="display:inline"  onsubmit="return confirm('Confirm delete?')">
-                                          @csrf 
-                                          @method('delete')
-                                           
-                                            <button type="submit" class="btn btn-danger btn-sm" title="Delete content">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
-                                            </button>
+</div>
 
-                                        </form>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+<div style="background-color: white;">
+
+    <table class="table mt-3" style="border-spacing: 10px;">
+        <thead style="background-color: #D2E9FB; color:black; border-top: 1px solid black; border-bottom: 1px solid black; padding:20px;" class="">
+            <tr>
+                <th style="width:100px">SL</th>
+                <th style="width:100px">user_id</th>
+                <th style="width:200px">billing_address</th>
+                <th style="width:200px">shipping_address</th>
+                <th style="width:100px">total</th>
+                <th style="width:100px">comment</th>
+                <th style="width:100px">status</th>
+                <th style="width:300px">action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($order as $row)
+            <tr>
+                <td>{{ $loop->iteration}}</td>
+                <td>{{ $row->user->name}}</td>
+                <td>{{ $row->billing_address}}</td>
+                <td>{{ $row->shipping_address}}</td>
+                <td>{{ $row->total }}</td>
+                <td>{{ $row->comment }}</td>
+                <td>{{ $row->status }}</td>
+
+                <td>
+                    <a class="btn btn-outline-primary" href="{{route('order.edit',$row->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+
+                    <a class="btn btn-outline-success" href="{{route('order.show',$row->id)}}"><i class="fa-solid fa-eye"></i></a>
+
+                    <form class="d-inline" onsubmit="return confirm('Are you sure?')" action="{{route('order.destroy',$row->id)}}" method="post">
+                        @csrf
+                        @method('delete')
+
+                        <button type="submit" class="btn btn-outline-danger" name="delete"><i class='fa-solid fa-trash'></i></button>
+                    </form>
+
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
 </div>
 @endsection

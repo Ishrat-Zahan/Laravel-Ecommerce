@@ -1,4 +1,17 @@
 @extends('website.home');
+
+
+@section('css');
+<style>
+    .category-image {
+        width: 200px;
+        /* Adjust the width as needed */
+        height: 200px;
+        /* Adjust the height as needed */
+    }
+</style>
+@endsection
+
 @section('content');
 
 <section class="banner-area relative" id="home">
@@ -20,63 +33,33 @@
 </section>
 
 
+
 <section class="category-area section-gap section-gap" id="catagory">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-40">
                 <div class="title text-center">
                     <h1 class="mb-10">Shop for Different Categories</h1>
-                    <p>Who are in extremely love with eco friendly system.</p>
+                    <p>Who are in extremely love with eco-friendly system.</p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8 col-md-8 mb-10">
+            <div class="col-lg-12 col-md-12 mb-10">
                 <div class="row category-bottom">
-                    <div class="col-lg-6 col-md-6 mb-30">
+                    @foreach($categories as $row)
+                    <div class="col-lg-3 col-md-6 mb-30">
                         <div class="content">
-                            <a href="#" target="_blank">
+                            <a href="homesubcat/{{$row->id}}">
                                 <div class="content-overlay"></div>
-                                <img class="content-image img-fluid d-block mx-auto" src="{{asset('assets/img/c1.jpg')}}" alt="">
+                                <img class="content-image img-fluid d-block mx-auto category-image" src="{{ asset('storage/' . $row->icon) }}" alt="">
                                 <div class="content-details fadeIn-bottom">
-                                    <h3 class="content-title">Product for Women</h3>
+                                    <h3 class="content-title">{{$row->name}}</h3>
                                 </div>
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 mb-30">
-                        <div class="content">
-                            <a href="#" target="_blank">
-                                <div class="content-overlay"></div>
-                                <img class="content-image img-fluid d-block mx-auto" src="{{asset('assets/img/c2.jpg')}}" alt="">
-                                <div class="content-details fadeIn-bottom">
-                                    <h3 class="content-title">Product for Couple</h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="content">
-                            <a href="#" target="_blank">
-                                <div class="content-overlay"></div>
-                                <img class="content-image img-fluid d-block mx-auto" src="{{asset('assets/img/c3.jpg')}}" alt="">
-                                <div class="content-details fadeIn-bottom">
-                                    <h3 class="content-title">Shop Now</h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 mb-10">
-                <div class="content">
-                    <a href="#" target="_blank">
-                        <div class="content-overlay"></div>
-                        <img class="content-image img-fluid d-block mx-auto" src="{{asset('assets/img/c4.jpg')}}" alt="">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">Product For Men</h3>
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -103,7 +86,7 @@
 
                     @forelse ($item->images as $image)
                     <a href="{{asset('storage/'.$image->name)}}" data-lightbox="product-{{$image->id}}">
-                    <img src="{{ asset('storage/' . $image->name) }}" alt="Image" width="200px" height="200px">
+                        <img src="{{ asset('storage/' . $image->name) }}" alt="Image" width="200px" height="200px">
                     </a>
                     @empty
                     <div class="alert alert-warning" role="alert">
@@ -115,10 +98,9 @@
                         <div class="bottom d-flex align-items-center justify-content-center">
                             <a href="javascript:void(0)"><span class="lnr lnr-heart"></span></a>
                             <a href="javascript:void(0)"><span class="lnr lnr-layers"></span></a>
-                            <a href="javascript:void(0)"><span  data-product-id="{{$item->id}}" class="lnr lnr-cart"></span></a>
+                            <a href="javascript:void(0)"><span data-product-id="{{$item->id}}" class="lnr lnr-cart"></span></a>
 
-                            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal"><span
-                            class="lnr lnr-frame-expand"></span></a>
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
                         </div>
                     </div>
                 </div>
@@ -128,7 +110,7 @@
                 </div>
             </div>
             @endforeach
-          
+
         </div>
     </div>
 </section>
@@ -149,7 +131,7 @@
                     <div class="content-overlay"></div>
                     @forelse ($item->images as $image)
                     <a href="{{asset('storage/'.$image->name)}}" data-lightbox="product-{{$image->id}}">
-                    <img src="{{ asset('storage/' . $image->name) }}" alt="Image" width="200px" height="200px">
+                        <img src="{{ asset('storage/' . $image->name) }}" alt="Image" width="200px" height="200px">
                     </a>
                     @empty
                     <div class="alert alert-warning" role="alert">
@@ -161,8 +143,7 @@
                             <a href="javascript:void(0)"><span class="lnr lnr-heart"></span></a>
                             <a href="javascript:void(0)"><span class="lnr lnr-layers"></span></a>
                             <a href="javascript:void(0)"><span data-product-id="{{$item->id}}" class="lnr lnr-cart"></span></a>
-                            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal"><span
-                                    class="lnr lnr-frame-expand"></span></a>
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
                         </div>
                     </div>
                 </div>
@@ -172,7 +153,7 @@
                 </div>
             </div>
             @endforeach
-            
+
         </div>
     </div>
 </section>
@@ -343,23 +324,15 @@
 <section class="brand-area pb-100">
     <div class="container">
         <div class="row logo-wrap">
+            @foreach($brands as $row)
             <a class="col single-img" href="#">
-              <img class="d-block mx-auto" src="{{asset('assets/img/br1.png')}}" alt="">
+                <img class="d-block mx-auto" src="{{asset('storage/')}}/{{$row->logo}}" alt="" style="width: 100px; height: 75px;">
             </a>
-            <a class="col single-img" href="#">
-              <img class="d-block mx-auto" src="{{asset('assets/img/br2.png')}}" alt="">
-            </a>
-            <a class="col single-img" href="#">
-              <img class="d-block mx-auto" src="{{asset('assets/img/br3.png')}}" alt="">
-            </a>
-            <a class="col single-img" href="#">
-              <img class="d-block mx-auto" src="{{asset('assets/img/br4.png')}}" alt="">
-            </a>
-            <a class="col single-img" href="#">
-              <img class="d-block mx-auto" src="{{asset('assets/img/br5.png')}}" alt="">
-            </a>
-          </div>
+            @endforeach
+        </div>
     </div>
 </section>
+
+
 
 @endsection
