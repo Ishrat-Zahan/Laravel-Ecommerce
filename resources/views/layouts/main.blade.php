@@ -8,7 +8,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Shop Dashboard</title>
+
     {{-- CSRF --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <link rel="icon" href="{{asset('assets2/assets/img/logo.png') }}" type="image/png">
 
     <link rel="stylesheet" href="{{asset('assets2/assets/css/bootstrap1.min.css')}}" />
@@ -313,10 +316,11 @@
     <script src="{{asset('assets2/assets/js/custom.js' ) }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{{ asset('assets2/js/jquery-ui-1.13.2/jquery-ui.min.js') }}"></script>
+
+    <script src="{{ asset('assets2/assets/js/jquery-ui-1.13.2/jquery-ui.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
-    @yield('script');
+    
 
     <script>
         $(document).ready(function() {
@@ -327,6 +331,8 @@
             });
         });
     </script>
+
+@yield('script');
 
 </body>
 

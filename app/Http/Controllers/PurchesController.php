@@ -40,7 +40,7 @@ class PurchesController extends Controller
             'supplier_id' => $supplier_id,
             'total' => $total,
         ]);
-        // dd($purchesC);
+       
         //...... purches_details........
 
         if ($purchesC) {
@@ -61,14 +61,23 @@ class PurchesController extends Controller
             }
 
             PurchesDetails::insert($details);
-            
+
+
+            //  ...........Stock...............
+
+            foreach ($details as $detail) {
+                $product = Product::find($detail['product_id']);
+                if ($product) {
+                    $product->total_quantity += $detail['quantity'];
+                    $product->save();
+                }
+            }
         }
 
         return response()->json([
             'status' => 'success',
             'message' => 'Order Created successfully',
         ]);
-       
     }
 
     /**
@@ -108,23 +117,21 @@ class PurchesController extends Controller
         if ($request->has('term')) {
             $term = $request->input('term');
             $products = Product::where('name', 'LIKE', '%' . $term . '%')
-                ->select('id', 'name', 'quantity', 'price')
+                ->select('id', 'name', 'total_quantity', 'selling_price')
                 ->get();
-    
+
             $return_arr = [];
             foreach ($products as $product) {
                 $return_arr[] = [
                     'id' => $product->id,
-                    'label' => $product->name, 
-                    'value' => $product->name, 
-                    'quantity' => $product->quantity,
-                    'price' => $product->price,
+                    'label' => $product->name,
+                    'value' => $product->name,
+                    'quantity' => $product->total_quantity,
+                    'price' => $product->selling_price,
                 ];
             }
-    
+
             return response()->json($return_arr);
         }
     }
-    
-    
 }

@@ -98,28 +98,12 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                     <ul class="navbar-nav">
-                        <li><a href="#home">Home</a></li>
+                        <li><a href="{{route('/')}}">Home</a></li>
                         <li><a href="#catagory">Category</a></li>
                         <li><a href="#men">Men</a></li>
                         <li><a href="#women">Women</a></li>
                         <li><a href="#latest">latest</a></li>
 
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                Pages
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="category.html">Category</a>
-                                <a class="dropdown-item" href="single.html">Single</a>
-                                <a class="dropdown-item" href="cart.html">Cart</a>
-                                <a class="dropdown-item" href="checkout.html">Checkout</a>
-                                <a class="dropdown-item" href="confermation.html">Confermation</a>
-                                <a class="dropdown-item" href="login.html">Login</a>
-                                <a class="dropdown-item" href="tracking.html">Tracking</a>
-                                <a class="dropdown-item" href="generic.html">Generic</a>
-                                <a class="dropdown-item" href="elements.html">Elements</a>
-                            </div>
-                        </li>
                         <li>
                             <a href="{{ route('order.create') }} ">
                                 <div class="cart-badge">
@@ -128,6 +112,38 @@
                                 </div>
                             </a>
                         </li>
+
+                        @if (Auth::check())
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <div class="dropdown-menu">
+
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="dropdown-item" href="javascript:void(0)" onclick="event.preventDefault();this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </a>
+                                </form>
+
+                            </div>
+                        </li> @else
+
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Account
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('register')}}">Register</a>
+                                <a class="dropdown-item" href="{{route('login')}}">Login</a>
+
+                            </div>
+                        </li>
+                        @endif
+
+
                     </ul>
                 </div>
             </div>
@@ -145,7 +161,7 @@
                             <li><a style="color: #f41068;" href="">About Us</a></li>
                             <li><a style="color: #f41068;" href="">Contact Info</a></li>
                         </ul>
-                       
+
                     </div>
                 </div>
                 <div class="col-lg-3  col-md-6 col-sm-6">
@@ -201,7 +217,7 @@
 
                     <script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i> <a href="https://colorlib.com/" target="_blank">IshratZahan</a>
+                    </script> All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i> <a href="https://colorlib.com/" target="_blank">IshratZahan</a>
                 </p>
 
             </div>
@@ -353,20 +369,29 @@
                 var qty = $row.find('.qu').val();
                 var price = $row.find('.price').text();
                 var itemtotal = qty * price;
-                // console.log(itemtotal);
                 $row.find('.itemtotal').text(financial(itemtotal));
                 updateTotal();
             });
 
+
             function updateTotal() {
                 var total = 0;
-                $(".itemtotal").each(function() {
-                    total += parseFloat($(this).text())
-                })
-                $(".grandtotal").text(total)
-                // console.log(grandtotal);
+                var updatedCart = showItem.getItems(); // Get the current cart from your JavaScript object
+                $(".itemtotal").each(function(index) {
+                    total += parseFloat($(this).text());
 
+                    // Update the quantity in the cart for the corresponding item
+                    var newQuantity = parseInt($("input[name='quantity']").eq(index).val());
+                    updatedCart[index].quantity = newQuantity;
+                });
+
+                $(".grandtotal").text(total);
+
+                // Save the updated cart in local storage
+                showItem.updateStorage(); // Use your Cart's updateStorage method
             }
+
+
         });
 
         $(document).on('click', '.myorder', function(event) {

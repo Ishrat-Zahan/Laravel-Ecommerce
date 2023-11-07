@@ -65,7 +65,7 @@ Route::resources([
 //............. website route...........
 
 
-Route::get('/', [HomeController::class,'index']);
+Route::get('/', [HomeController::class,'index'])->name('/');
 Route::get('/homesubcat/{id}', [HomeController::class,'homesubcat']);
 Route::get('/cart/{id}', [HomeController::class,'cart']);
 Route::get('/searchbox', [PurchesController::class, 'searchr']);

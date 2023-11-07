@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Order_details;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,10 +37,7 @@ class OrderController extends Controller
                 $userName = $user->name;
             }
 
-            return view('website.cart', [ 'userId' => $userId,  'userName' => $userName,]);
-          
-               
-                
+            return view('website.cart', [ 'userId' => $userId,  'userName' => $userName,]);             
             
         }
 
@@ -78,6 +76,16 @@ class OrderController extends Controller
           
 
             Order_details::insert($details);
+
+                  //  ...........Stock...............
+
+                  foreach ($details as $detail) {
+                    $product = Product::find($detail['product_id']);
+                    if ($product) {
+                        $product->total_quantity -= $detail['quantity'];
+                        $product->save();
+                    }
+                }
 
         }
 

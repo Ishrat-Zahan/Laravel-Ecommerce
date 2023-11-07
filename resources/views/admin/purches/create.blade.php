@@ -156,6 +156,7 @@
             minLength: 1,
             select: function(event, ui) {
                 // console.log(ui)
+
                 var html = "";
                 html += "<tr>";
                 html += "<td class='product_id'>" + ui.item.id + "</td>";
@@ -178,14 +179,17 @@
             }
         });
 
+
         $(document).on('click', '.deleteproduct', function(e) {
             e.preventDefault();
             $(this).closest('tr').remove();
         });
 
+
         function financial(x) {
             return Number.parseFloat(x).toFixed(2);
         }
+
 
         $(document).on('blur change keyup', '.qu', function() {
             var $row = $(this).closest('tr');
@@ -254,7 +258,7 @@
                             container: 'custom-swal-container',
                         },
                     });
-                    // location.reload();
+                    location.reload();
                 }
             });
         })
