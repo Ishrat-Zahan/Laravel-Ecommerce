@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('purches', function (Blueprint $table) {
             $table->id();
+            
             $table->bigInteger('supplier_id')->unsigned();
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
+
             $table->float('total',10,2);
 
             $table->timestamps();

@@ -73,18 +73,18 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-40">
                 <div class="title text-center">
-                    <h1 class="text-white mb-10">New realeased Products for Men</h1>
+                    <h1 class="text-white mb-10">New realeased Products</h1>
                     <p class="text-white">Who are in extremely love with eco friendly system.</p>
                 </div>
             </div>
         </div>
         <div class="row">
-            @foreach($p as $item)
+            @foreach($latest as $row)
             <div class="col-lg-3 col-md-6 single-product">
                 <div class="content">
                     <div class="content-overlay"></div>
 
-                    @forelse ($item->images as $image)
+                    @forelse ($row->images as $image)
                     <a href="{{asset('storage/'.$image->name)}}" data-lightbox="product-{{$image->id}}">
                         <img src="{{ asset('storage/' . $image->name) }}" alt="Image" width="200px" height="200px">
                     </a>
@@ -93,20 +93,21 @@
                         No Image Available
                     </div>
                     @endforelse
-                    <!-- <img src="{{ asset('storage/' . $item->image) }}" alt="Image" width="200px" height="200px"> -->
+
                     <div class="content-details fadeIn-bottom">
                         <div class="bottom d-flex align-items-center justify-content-center">
                             <a href="javascript:void(0)"><span class="lnr lnr-heart"></span></a>
                             <a href="javascript:void(0)"><span class="lnr lnr-layers"></span></a>
-                            <a href="javascript:void(0)"><span data-product-id="{{$item->id}}" class="lnr lnr-cart"></span></a>
+                            <a href="javascript:void(0)"><span data-product-id="{{$row->id}}" class="lnr lnr-cart"></span></a>
+                            <a href="{{ route('details', ['id' => $row->id]) }}"><span class="lnr lnr-frame-expand"></span></a>
 
-                            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
+
                         </div>
                     </div>
                 </div>
                 <div class="price">
-                    <h5 class="text-white">{{$item->name}}</h5>
-                    <h3 class="text-white">{{$item->selling_price}}</h3>
+                    <h5 class="text-white">{{$row->name}}</h5>
+                    <h3 class="text-white">{{$row->selling_price}}</h3>
                 </div>
             </div>
             @endforeach
@@ -125,11 +126,11 @@
             </div>
         </div>
         <div class="row">
-            @foreach($product as $item)
+            @foreach($product as $row)
             <div class="col-lg-3 col-md-6 single-product">
                 <div class="content">
                     <div class="content-overlay"></div>
-                    @forelse ($item->images as $image)
+                    @forelse ($row->images as $image)
                     <a href="{{asset('storage/'.$image->name)}}" data-lightbox="product-{{$image->id}}">
                         <img src="{{ asset('storage/' . $image->name) }}" alt="Image" width="200px" height="200px">
                     </a>
@@ -142,14 +143,14 @@
                         <div class="bottom d-flex align-items-center justify-content-center">
                             <a href="javascript:void(0)"><span class="lnr lnr-heart"></span></a>
                             <a href="javascript:void(0)"><span class="lnr lnr-layers"></span></a>
-                            <a href="javascript:void(0)"><span data-product-id="{{$item->id}}" class="lnr lnr-cart"></span></a>
-                            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
+                            <a href="javascript:void(0)"><span data-product-id="{{$row->id}}" class="lnr lnr-cart"></span></a>
+                            <a href="{{ route('details', ['id' => $row->id]) }}"><span class="lnr lnr-frame-expand"></span></a>
                         </div>
                     </div>
                 </div>
                 <div class="price">
-                    <h5>{{$item->name}}</h5>
-                    <h3>{{$item->selling_price}}</h3>
+                    <h5>{{$row->name}}</h5>
+                    <h3>{{$row->selling_price}}</h3>
                 </div>
             </div>
             @endforeach

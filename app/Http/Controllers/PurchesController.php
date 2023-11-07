@@ -14,7 +14,13 @@ class PurchesController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {;
+    {
+
+        $purches = Purches::with(['supplier', 'purchesdetails'])->get();
+
+
+
+        return view('admin.purches.index', ['purches' => $purches]);
     }
 
     /**
@@ -40,7 +46,7 @@ class PurchesController extends Controller
             'supplier_id' => $supplier_id,
             'total' => $total,
         ]);
-       
+
         //...... purches_details........
 
         if ($purchesC) {
@@ -83,10 +89,24 @@ class PurchesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Purches $purches)
+    public function show($purchesId)
     {
-        //
+        
+        $purches = Purches::with('supplier', 'purchesdetails.product')->find($purchesId);
+    
+        if (!$purches) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Purches not found',
+            ], 404);
+        }
+    
+        // dd($purches);
+    
+        return view('admin.purches.show', ['purches' => $purches]);
     }
+    
+
 
     /**
      * Show the form for editing the specified resource.

@@ -16,7 +16,7 @@ class HomeController extends Controller
         $product = Product::with(['category', 'subcategory'])->get();
         $brands = Brand::all();
         $categories = Category::all();
-        return view('website.content', ['p' => $latest, 'product' => $product, 'brands' => $brands, 'categories' => $categories]);
+        return view('website.content', ['latest' => $latest, 'product' => $product, 'brands' => $brands, 'categories' => $categories]);
     }
 
     public function cart($id)
@@ -34,6 +34,12 @@ class HomeController extends Controller
     {
         $subcat = Subcategory::where('category_id', $id)->get();
         return view('website.subcategory', ['subcat' => $subcat]);
+    }
+
+    public function details($id){
+
+        $details = Product::with(['category', 'subcategory', 'images'])->findOrFail($id);
+        return view('website.details', ['details' => $details]);
     }
     
 }

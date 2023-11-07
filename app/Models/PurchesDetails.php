@@ -11,13 +11,15 @@ class PurchesDetails extends Model
     protected $fillable = [
         'purches_id',
         'product_id',  
-        'Quantity',
+        'quantity' 
     ];
 
-    public function purches(){
+    public function purches()
+    {
         return $this->belongsTo(Purches::class);
     }
-    public function product(){
-        return $this->belongsTo(Product::class);
+    public function product()
+    {
+        return $this->belongsTo(product::class);
     }
 }

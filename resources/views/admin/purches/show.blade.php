@@ -7,7 +7,7 @@
     <div class="container mb-5 mt-3">
       <div class="row d-flex align-items-baseline">
         <div class="col-xl-9">
-          <p style="color: #7e8d9f;font-size: 20px;">Invoice >> <strong>ID: {{$order->id}}</strong></p>
+          <p style="color: #5B6BDC;font-size: 20px;">Purches Invoice >> <strong>ID: {{$purches->id}}</strong></p>
         </div>
         <div class="col-xl-3 float-end mb-2">
           <a onclick="printPage()" class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i class="fas fa-print text-primary"></i> Print</a>
@@ -28,31 +28,34 @@
 
         <div class="row">
           <div class="col-xl-8">
+
+
+            <p class="text-muted">From:</p>
             <ul class="list-unstyled">
-              <li class="text-muted">From: <span style="color:#5B6BDC ;">Ishrat Zahan</span></li>
+              <li class="text-muted"><i class="fas fa-circle" style="color:#5B6BDC ;"></i> <span class="fw-bold">ID:</span>{{$purches->id}}
+              </li>
+
+              <li class="text-muted"><i class="fas fa-circle" style="color:#5B6BDC ;"></i> <span class="fw-bold">Supplier: </span>{{$purches->supplier->name}}
+              </li>
+              <li class="text-muted"><i class="fas fa-circle" style="color:#5B6BDC ;"></i> <span class="fw-bold">Email: </span>{{$purches->supplier->email}}
+              </li>
+
+              <li class="text-muted"><i class="fas fa-circle" style="color:#5B6BDC ;"></i> <span class="fw-bold">Creation Date: </span>{{$purches->created_at}}
+              </li>
+
+          </div>
+          <div class="col-xl-4">
+
+            <ul class="list-unstyled">
+              <li class="text-muted">To: <span style="color:#5B6BDC ;">Ishrat Zahan</span></li>
               <li class="text-muted">Amin Bazar</li>
               <li class="text-muted">Dhaka</li>
               <li class="text-muted"><i class="fas fa-phone"></i> 0179900000</li>
             </ul>
-          </div>
-          <div class="col-xl-4">
 
-            <p class="text-muted">To:</p>
-            <ul class="list-unstyled">
-              <li class="text-muted"><i class="fas fa-circle" style="color:#5B6BDC ;"></i> <span class="fw-bold">ID:</span>{{$order->id}}
-              </li>
 
-              <li class="text-muted"><i class="fas fa-circle" style="color:#5B6BDC ;"></i> <span class="fw-bold">Customer: </span>{{$order->user->name}}
-              </li>
-              <li class="text-muted"><i class="fas fa-circle" style="color:#5B6BDC ;"></i> <span class="fw-bold">Email: </span>{{$order->user->email}}
-              </li>
 
-              <li class="text-muted"><i class="fas fa-circle" style="color:#5B6BDC ;"></i> <span class="fw-bold">Creation Date: </span>{{$order->created_at}}
-              </li>
 
-              <li class="text-muted"><i class="fas fa-circle" style="color:#5B6BDC;"></i> <span class="me-1 fw-bold">Status:</span><span class="badge bg-warning text-black fw-bold">
-                  {{$order->status}}</span>
-              </li>
 
             </ul>
           </div>
@@ -74,7 +77,7 @@
               </tr>
             </thead>
             <tbody>
-              @forelse ($order->order_details as $row)
+              @forelse ($purches->purchesdetails as $row)
 
               <tr>
                 <th scope="row">{{$loop->iteration}}</th>
@@ -82,8 +85,8 @@
                 <td>{{$row->quantity}}</td>
                 <td>{{$row->product->selling_price}}</td>
                 <td>{{$row->product->selling_price * $row->quantity}}</td>
-
               </tr>
+
               @empty
 
               @endforelse
@@ -98,7 +101,7 @@
           </div>
           <div class="col-xl-3">
 
-            <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">{{$order->total}}</span></p>
+            <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;">{{$purches->total}}</span></p>
           </div>
         </div>
         <hr>

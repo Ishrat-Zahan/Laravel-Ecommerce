@@ -13,11 +13,14 @@ class Purches extends Model
         'total'
     ];
 
-    public function supplieres(){
+
+    public function supplier()
+    {
         return $this->belongsTo(Supplier::class);
     }
-    public function purchesdetails(){
+
+    public function purchesdetails()
+    {
         return $this->hasMany(PurchesDetails::class);
     }
 }
-      

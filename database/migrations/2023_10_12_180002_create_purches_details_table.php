@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('purches_details', function (Blueprint $table) {
             $table->id();
+            
             $table->bigInteger('purches_id')->unsigned();
             $table->foreign('purches_id')->references('id')->on('purches');
 
