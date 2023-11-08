@@ -52,7 +52,7 @@
                         <div class="content">
                             <a href="homesubcat/{{$row->id}}">
                                 <div class="content-overlay"></div>
-                                <img class="content-image img-fluid d-block mx-auto category-image" src="{{ asset('storage/' . $row->icon) }}" alt="">
+                                <img class="content-image img-fluid d-block mx-auto category-image" src="{{ asset('storage/' . $row->icon) }}" alt="" style="width: 210px; height: 150px;"> <!-- Set your desired width and height here -->
                                 <div class="content-details fadeIn-bottom">
                                     <h3 class="content-title">{{$row->name}}</h3>
                                 </div>
@@ -65,6 +65,7 @@
         </div>
     </div>
 </section>
+
 
 
 <section class="men-product-area section-gap relative" id="men">
@@ -96,14 +97,14 @@
 
                     <div class="content-details fadeIn-bottom">
                         <div class="bottom d-flex align-items-center justify-content-center">
-                            <a href="javascript:void(0)"><span class="lnr lnr-heart"></span></a>
-                            <a href="javascript:void(0)"><span class="lnr lnr-layers"></span></a>
+                            <a href=""><span class="lnr lnr-heart"></span></a>
+                            <a href=""><span class="lnr lnr-layers"></span></a>
                             <a href="javascript:void(0)"><span data-product-id="{{$row->id}}" class="lnr lnr-cart"></span></a>
                             <a href="{{ route('details', ['id' => $row->id]) }}"><span class="lnr lnr-frame-expand"></span></a>
-
-
                         </div>
                     </div>
+
+            
                 </div>
                 <div class="price">
                     <h5 class="text-white">{{$row->name}}</h5>
