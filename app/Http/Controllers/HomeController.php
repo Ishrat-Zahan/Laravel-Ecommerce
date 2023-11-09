@@ -12,11 +12,15 @@ class HomeController extends Controller
 {
     public function index()
     {
+        
         $latest = Product::with(['category', 'subcategory'])->latest()->take(4)->get();
         $product = Product::with(['category', 'subcategory'])->get();
         $brands = Brand::all();
-        $categories = Category::all();
-        return view('website.content', ['latest' => $latest, 'product' => $product, 'brands' => $brands, 'categories' => $categories]);
+        $category = Category::all();
+        $categories = Category::with('subcategories.subsubcategories')->get();
+
+
+        return view('website.content', ['latest' => $latest, 'product' => $product, 'brands' => $brands, 'categories' => $categories, 'category' => $category]);
     }
 
     public function cart($id)

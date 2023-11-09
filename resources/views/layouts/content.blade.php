@@ -11,23 +11,23 @@
                             <div class="col-12">
                                 <div class="quick_activity_wrap">
                                     <div class="single_quick_activity">
-                                        <h4>Total Income</h4>
-                                        <h3>$ <span class="counter">5,79,000</span> </h3>
+                                        <h4>Daily Sell</h4>
+                                        <h3> &#2547; <span class="counter">{{$dailyOrder}}</span> </h3>
                                         <p>Saved 25%</p>
                                     </div>
                                     <div class="single_quick_activity">
-                                        <h4>Total Expences</h4>
-                                        <h3>$ <span class="counter">79,000</span> </h3>
+                                        <h4>Monthly Sell</h4>
+                                        <h3> &#2547; <span class="counter">{{$monthlySell}}</span> </h3>
                                         <p>Saved 25%</p>
                                     </div>
                                     <div class="single_quick_activity">
                                         <h4>Cash on Hand</h4>
-                                        <h3>$ <span class="counter">92,000</span> </h3>
+                                        <h3> &#2547; <span class="counter">92,000</span> </h3>
                                         <p>Saved 25%</p>
                                     </div>
                                     <div class="single_quick_activity">
                                         <h4>Net Profit Margin</h4>
-                                        <h3>$ <span class="counter">1,79,000</span> </h3>
+                                        <h3> &#2547; <span class="counter">1,79,000</span> </h3>
                                         <p>Saved 65%</p>
                                     </div>
                                 </div>

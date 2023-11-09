@@ -35,7 +35,8 @@ body {
 }
 
 /* line 45, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
-ol, ul {
+ol,
+ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -65,7 +66,9 @@ iframe {
 }
 
 /* line 65, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
-a, a:focus, a:hover {
+a,
+a:focus,
+a:hover {
   text-decoration: none;
   outline: 0;
 }
@@ -96,8 +99,12 @@ a, a:focus, a:hover {
 /* line 91, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
 
 /* line 95, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
-h1, h2, h3,
-h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Poppins", sans-serif;
   color: #222222;
   line-height: 1.2em !important;
@@ -107,8 +114,12 @@ h4, h5, h6 {
 }
 
 /* line 104, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
-.h1, .h2, .h3,
-.h4, .h5, .h6 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   margin-bottom: 0;
   margin-top: 0;
   font-family: "Poppins", sans-serif;
@@ -117,32 +128,38 @@ h4, h5, h6 {
 }
 
 /* line 113, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
-h1, .h1 {
+h1,
+.h1 {
   font-size: 36px;
 }
 
 /* line 114, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
-h2, .h2 {
+h2,
+.h2 {
   font-size: 30px;
 }
 
 /* line 115, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
-h3, .h3 {
+h3,
+.h3 {
   font-size: 24px;
 }
 
 /* line 116, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
-h4, .h4 {
+h4,
+.h4 {
   font-size: 18px;
 }
 
 /* line 117, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
-h5, .h5 {
+h5,
+.h5 {
   font-size: 16px;
 }
 
 /* line 118, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
-h6, .h6 {
+h6,
+.h6 {
   font-size: 14px;
   color: #222222;
 }
@@ -162,7 +179,8 @@ td {
  *    `:before` to contain the top-margins of child elements.
  */
 /* line 133, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_reset.scss */
-.clear::before, .clear::after {
+.clear::before,
+.clear::after {
   content: " ";
   display: table;
 }
@@ -546,7 +564,11 @@ td {
 }
 
 /* line 17, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-b, sup, sub, u, del {
+b,
+sup,
+sub,
+u,
+del {
   color: #f41068;
 }
 
@@ -581,12 +603,22 @@ h6 {
 }
 
 /* line 38, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.5em;
 }
 
 /* line 42, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.typography h1, .typography h2, .typography h3, .typography h4, .typography h5, .typography h6 {
+.typography h1,
+.typography h2,
+.typography h3,
+.typography h4,
+.typography h5,
+.typography h6 {
   color: #777777;
 }
 
@@ -931,7 +963,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 284, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.progress-table .table-head .serial, .progress-table .table-head .country, .progress-table .table-head .visit, .progress-table .table-head .percentage {
+.progress-table .table-head .serial,
+.progress-table .table-head .country,
+.progress-table .table-head .visit,
+.progress-table .table-head .percentage {
   color: #222222;
   line-height: 40px;
   text-transform: uppercase;
@@ -946,7 +981,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 295, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.progress-table .table-row .serial, .progress-table .table-row .country, .progress-table .table-row .visit, .progress-table .table-row .percentage {
+.progress-table .table-row .serial,
+.progress-table .table-row .country,
+.progress-table .table-row .visit,
+.progress-table .table-row .percentage {
   display: flex;
   align-items: center;
 }
@@ -1222,7 +1260,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 550, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.default-switch input + label {
+.default-switch input+label {
   position: absolute;
   top: 1px;
   left: 1px;
@@ -1239,7 +1277,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 563, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.default-switch input:checked + label {
+.default-switch input:checked+label {
   left: 19px;
 }
 
@@ -1266,7 +1304,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 585, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.primary-switch input + label {
+.primary-switch input+label {
   position: absolute;
   left: 0;
   top: 0;
@@ -1277,7 +1315,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 593, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.primary-switch input + label:before {
+.primary-switch input+label:before {
   content: "";
   position: absolute;
   left: 0;
@@ -1296,7 +1334,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 607, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.primary-switch input + label:after {
+.primary-switch input+label:after {
   content: "";
   position: absolute;
   top: 1px;
@@ -1314,12 +1352,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 623, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.primary-switch input:checked + label:after {
+.primary-switch input:checked+label:after {
   left: 19px;
 }
 
 /* line 626, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.primary-switch input:checked + label:before {
+.primary-switch input:checked+label:before {
   background: #f41068;
 }
 
@@ -1346,7 +1384,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 649, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.confirm-switch input + label {
+.confirm-switch input+label {
   position: absolute;
   left: 0;
   top: 0;
@@ -1357,7 +1395,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 657, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.confirm-switch input + label:before {
+.confirm-switch input+label:before {
   content: "";
   position: absolute;
   left: 0;
@@ -1376,7 +1414,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 671, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.confirm-switch input + label:after {
+.confirm-switch input+label:after {
   content: "";
   position: absolute;
   top: 1px;
@@ -1394,12 +1432,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 687, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.confirm-switch input:checked + label:after {
+.confirm-switch input:checked+label:after {
   left: 19px;
 }
 
 /* line 690, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.confirm-switch input:checked + label:before {
+.confirm-switch input:checked+label:before {
   background: #4cd3e3;
 }
 
@@ -1426,7 +1464,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 713, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.primary-checkbox input + label {
+.primary-checkbox input+label {
   position: absolute;
   left: 0;
   top: 0;
@@ -1440,7 +1478,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 726, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.primary-checkbox input:checked + label {
+.primary-checkbox input:checked+label {
   background: url(../img/elements/primary-check.png) no-repeat center center/cover;
   border: none;
 }
@@ -1468,7 +1506,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 750, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.confirm-checkbox input + label {
+.confirm-checkbox input+label {
   position: absolute;
   left: 0;
   top: 0;
@@ -1482,7 +1520,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 763, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.confirm-checkbox input:checked + label {
+.confirm-checkbox input:checked+label {
   background: url(../img/elements/success-check.png) no-repeat center center/cover;
   border: none;
 }
@@ -1510,7 +1548,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 786, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.disabled-checkbox input + label {
+.disabled-checkbox input+label {
   position: absolute;
   left: 0;
   top: 0;
@@ -1530,7 +1568,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 803, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.disabled-checkbox input:checked + label {
+.disabled-checkbox input:checked+label {
   background: url(../img/elements/disabled-check.png) no-repeat center center/cover;
   border: none;
 }
@@ -1558,7 +1596,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 826, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.primary-radio input + label {
+.primary-radio input+label {
   position: absolute;
   left: 0;
   top: 0;
@@ -1572,7 +1610,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 839, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.primary-radio input:checked + label {
+.primary-radio input:checked+label {
   background: url(../img/elements/primary-radio.png) no-repeat center center/cover;
   border: none;
 }
@@ -1600,7 +1638,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 862, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.confirm-radio input + label {
+.confirm-radio input+label {
   position: absolute;
   left: 0;
   top: 0;
@@ -1614,7 +1652,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 875, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.confirm-radio input:checked + label {
+.confirm-radio input:checked+label {
   background: url(../img/elements/success-radio.png) no-repeat center center/cover;
   border: none;
 }
@@ -1642,7 +1680,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 898, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.disabled-radio input + label {
+.disabled-radio input+label {
   position: absolute;
   left: 0;
   top: 0;
@@ -1662,7 +1700,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 915, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
-.disabled-radio input:checked + label {
+.disabled-radio input:checked+label {
   background: url(../img/elements/disabled-radio.png) no-repeat center center/cover;
   border: none;
 }
@@ -1792,6 +1830,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 992px) {
+
   /* line 2, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_header.scss */
   .navbar-nav {
     height: auto;
@@ -1819,6 +1858,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 28, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_header.scss */
   .main-menubar {
     display: block !important;
@@ -1853,14 +1893,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 992px) {
+
   /* line 52, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_header.scss */
   .navbar-nav {
     margin-top: 10px;
   }
+
   /* line 64, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_header.scss */
   .navbar-nav a {
     padding: 0;
   }
+
   /* line 67, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_header.scss */
   .navbar-nav li {
     padding: 15px 0;
@@ -1893,6 +1936,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 462px) {
+
   /* line 80, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_header.scss */
   .menutop-wrap a {
     font-size: 8px;
@@ -1916,14 +1960,50 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 20, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
- .primary-btn2, .primary-btn2.primary-border:hover, .banner-area, .category-area .content .content-overlay, .men-product-area .overlay-bg, .bottom, .countdown-area .view-btn:hover, .single-footer-widget .click-btn, .generic-banner, .details-tab-navigation .nav-link:hover, .details-tab-navigation .nav-link.active, .quick-view-carousel-details .owl-controls .owl-dots .owl-dot.active:after, .checkput-login .top-title, .register-form, .submit-btn, .submit-btn.color-1, .submit-btn.color-2, .submit-btn.color-3, .submit-btn.color-4, .view-btn.color-1:after, .view-btn.color-2:after, .view-btn.color-3:after, .view-btn.color-4:after, .single-search-product:before, .organic-breadcrumb, .grid-btn:hover, .list-btn:hover, .grid-btn.active, .list-btn.active, .pagination a.active, .pagination a:hover {
+.primary-btn2,
+.primary-btn2.primary-border:hover,
+.banner-area,
+.category-area .content .content-overlay,
+.men-product-area .overlay-bg,
+.bottom,
+.countdown-area .view-btn:hover,
+.single-footer-widget .click-btn,
+.generic-banner,
+.details-tab-navigation .nav-link:hover,
+.details-tab-navigation .nav-link.active,
+.quick-view-carousel-details .owl-controls .owl-dots .owl-dot.active:after,
+.checkput-login .top-title,
+.register-form,
+.submit-btn,
+.submit-btn.color-1,
+.submit-btn.color-2,
+.submit-btn.color-3,
+.submit-btn.color-4,
+.view-btn.color-1:after,
+.view-btn.color-2:after,
+.view-btn.color-3:after,
+.view-btn.color-4:after,
+.single-search-product:before,
+.organic-breadcrumb,
+.grid-btn:hover,
+.list-btn:hover,
+.grid-btn.active,
+.list-btn.active,
+.pagination a.active,
+.pagination a:hover {
   background-image: -moz-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
   background-image: -webkit-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
   background-image: -ms-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
 }
 
 /* line 28, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
- .countdown-area .countdown .countdown-item .countdown-timer, .footer-social a:hover i, .single-footer-widget .bb-btn, .quick-view-content .price span, .quick-view-content .category span, .quick-view-content .view-full, .single-search-product .desc .title:hover {
+.countdown-area .countdown .countdown-item .countdown-timer,
+.footer-social a:hover i,
+.single-footer-widget .bb-btn,
+.quick-view-content .price span,
+.quick-view-content .category span,
+.quick-view-content .view-full,
+.single-search-product .desc .title:hover {
   background: -moz-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
   background: -webkit-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
   background: -ms-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
@@ -1962,7 +2042,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 58, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
-.primary-btn2 {
+/* .primary-btn2 {
   display: inline-block;
   outline: none;
   line-height: 28px;
@@ -1978,7 +2058,7 @@ h1, h2, h3, h4, h5, h6 {
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-}
+} */
 
 /* line 72, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
 .primary-btn2:hover {
@@ -2084,6 +2164,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 144, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .dropdown-item {
     text-align: left;
@@ -2092,6 +2173,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (min-width: 768px) {
+
   /* line 157, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .dropdown .dropdown-menu {
     display: block;
@@ -2101,6 +2183,7 @@ h1, h2, h3, h4, h5, h6 {
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
   }
+
   /* line 162, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .dropdown-menu {
     -webkit-transition: all 0.3s ease 0s;
@@ -2108,6 +2191,7 @@ h1, h2, h3, h4, h5, h6 {
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
   }
+
   /* line 166, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .dropdown:hover .dropdown-menu {
     display: block;
@@ -2132,6 +2216,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 174, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .dropdown-menu {
     margin-top: 0px;
@@ -2139,13 +2224,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 186, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
-.dropdown-item:focus, .dropdown-item:hover {
+.dropdown-item:focus,
+.dropdown-item:hover {
   color: #16181b;
   text-decoration: none;
   background-color: transparent;
 }
 
+
+
 @media (max-width: 767px) {
+
   /* line 195, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .banner-area .fullscreen {
     height: 700px !important;
@@ -2153,6 +2242,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 201, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .banner-content {
     text-align: center;
@@ -2180,6 +2270,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 212, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .banner-content h1 {
     font-size: 36px;
@@ -2187,6 +2278,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 221, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .banner-content h1 br {
     display: none;
@@ -2194,6 +2286,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 1199px) {
+
   /* line 212, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .banner-content h1 {
     font-size: 45px;
@@ -2201,6 +2294,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 414px) {
+
   /* line 212, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .banner-content h1 {
     font-size: 40px;
@@ -2216,6 +2310,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 241, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .banner-content p br {
     display: none;
@@ -2223,6 +2318,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 253, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .img-right img {
     width: 50%;
@@ -2232,6 +2328,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 260, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .img-right img {
     width: 90%;
@@ -2319,6 +2416,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 1024px) {
+
   /* line 345, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .category-area .category-bottom .mb-30 {
     margin-bottom: 22px;
@@ -2326,6 +2424,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 800px) {
+
   /* line 351, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .category-area .category-bottom .mb-30 {
     margin-bottom: 14px;
@@ -2360,6 +2459,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+
   /* line 376, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .single-product .price {
     text-align: center;
@@ -2367,6 +2467,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 800px) {
+
   /* line 375, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .single-product {
     margin-bottom: 20px;
@@ -2494,6 +2595,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 505, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .countdown-area .countdown {
     padding: 15px;
@@ -2508,6 +2610,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 514, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .countdown-area .countdown .view-btn {
     bottom: -30px;
@@ -2523,6 +2626,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 522, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .countdown-area .countdown .cd-img {
     left: 0;
@@ -2531,6 +2635,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 522, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .countdown-area .countdown .cd-img {
     display: none;
@@ -2554,6 +2659,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 535, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .countdown-area .countdown .countdown-item {
     padding: 0 15px;
@@ -2596,6 +2702,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 570, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .countdown-area .countdown .countdown-item .countdown-timer {
     font-size: 24px;
@@ -2668,6 +2775,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 800px) {
+
   /* line 631, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .single-img img {
     margin-bottom: 40px;
@@ -2725,6 +2833,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 679, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .footer-social {
     text-align: left;
@@ -2836,6 +2945,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 702, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .single-footer-widget {
     margin-bottom: 30px;
@@ -2848,7 +2958,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 793, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
-.footer-text a, .footer-text i {
+.footer-text a,
+.footer-text i {
   color: #f41068;
 }
 
@@ -2863,6 +2974,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 810, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .generic-banner .height {
     height: 400px;
@@ -2876,6 +2988,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 820, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .generic-banner .generic-banner-content h2 br {
     display: none;
@@ -2889,6 +3002,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 829, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .generic-banner .generic-banner-content p br {
     display: none;
@@ -2936,6 +3050,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 873, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .quick-view-content {
     padding: 50px;
@@ -2943,6 +3058,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 873, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .quick-view-content {
     padding: 30px 15px;
@@ -3109,6 +3225,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 1032, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .description {
     padding: 30px 10px;
@@ -3123,6 +3240,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 1040, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .specification-table {
     padding: 30px 10px;
@@ -3161,6 +3279,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 1054, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .specification-table .single-row span:first-child {
     margin-left: 0;
@@ -3180,6 +3299,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 1067, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .review-wrapper {
     padding: 30px 10px;
@@ -3219,6 +3339,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 575px) {
+
   /* line 1091, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .review-count {
     margin-top: 30px;
@@ -3276,6 +3397,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 575px) {
+
   /* line 1157, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .total-comment .single-comment .user-details .user-name {
     margin-top: 10px;
@@ -3323,6 +3445,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 575px) {
+
   /* line 1187, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .common-input {
     padding: 0 10px;
@@ -3350,6 +3473,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 575px) {
+
   /* line 1204, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .common-textarea {
     padding: 10px;
@@ -3381,6 +3505,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 767px) {
+
   /* line 1223, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .quick-view-carousel-details .item {
     height: 300px;
@@ -3395,6 +3520,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 991px) {
+
   /* line 1234, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .quick-view-carousel-details .owl-controls {
     display: none;
@@ -3548,6 +3674,7 @@ label {
 }
 
 @media (max-width: 575px) {
+
   /* line 1464, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .checkout-login-collapse {
     padding: 20px 0;
@@ -3555,7 +3682,7 @@ label {
 }
 
 /* line 1471, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
-.pixel-checkbox + label {
+.pixel-checkbox+label {
   margin-left: 10px;
 }
 
@@ -3572,6 +3699,7 @@ label {
 }
 
 @media (max-width: 575px) {
+
   /* line 1479, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .billing-title.pl-15 {
     padding-left: 0;
@@ -3653,6 +3781,7 @@ label {
 }
 
 @media (max-width: 767px) {
+
   /* line 1536, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .cart-title {
     display: none;
@@ -3671,6 +3800,7 @@ label {
 }
 
 @media (max-width: 767px) {
+
   /* line 1545, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .cart-single-item .product-item {
     margin-left: 0;
@@ -3691,7 +3821,8 @@ label {
 }
 
 /* line 1560, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
-.cart-single-item .price, .cart-single-item .total {
+.cart-single-item .price,
+.cart-single-item .total {
   font-size: 18px;
   font-weight: 500;
   color: #222222;
@@ -3726,6 +3857,7 @@ label {
 }
 
 @media (max-width: 767px) {
+
   /* line 1583, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .cupon-area {
     padding-left: 0;
@@ -3768,6 +3900,7 @@ label {
 }
 
 @media (max-width: 767px) {
+
   /* line 1616, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .cupon-area .cupon-code {
     margin-top: 10px;
@@ -3791,6 +3924,7 @@ label {
 }
 
 @media (max-width: 575px) {
+
   /* line 1629, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .cupon-area .cupon-code button {
     border-right: 1px solid #eee;
@@ -3929,6 +4063,7 @@ label {
 }
 
 @media (max-width: 575px) {
+
   /* line 1733, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .order-rable {
     padding: 15px 0;
@@ -3964,6 +4099,7 @@ label {
 }
 
 @media (max-width: 767px) {
+
   /* line 1763, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .register-form {
     margin-top: 30px;
@@ -4226,6 +4362,7 @@ label {
 }
 
 @media (max-width: 575px) {
+
   /* line 391, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
   .view-btn.reply {
     width: 160px;
@@ -4730,6 +4867,7 @@ label {
 }
 
 @media (max-width: 991px) {
+
   /* line 1261, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
   .breadcrumb-banner .col-first {
     width: 40%;
@@ -4737,6 +4875,7 @@ label {
 }
 
 @media (max-width: 991px) {
+
   /* line 1261, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
   .breadcrumb-banner .col-first {
     width: 100%;
@@ -4772,7 +4911,8 @@ label {
 }
 
 /* line 1303, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
-.filter-bar a, .filter-bar i {
+.filter-bar a,
+.filter-bar i {
   color: #000;
 }
 
@@ -4782,7 +4922,8 @@ label {
 }
 
 /* line 1314, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
-.grid-btn, .list-btn {
+.grid-btn,
+.list-btn {
   margin-top: 10px;
   width: 40px;
   line-height: 40px;
@@ -4792,17 +4933,20 @@ label {
 }
 
 /* line 1320, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
-.grid-btn i, .list-btn i {
+.grid-btn i,
+.list-btn i {
   display: inline-block;
 }
 
 /* line 1325, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
-.grid-btn:hover i, .list-btn:hover i {
+.grid-btn:hover i,
+.list-btn:hover i {
   color: #fff;
 }
 
 /* line 1331, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
-.grid-btn.active i, .list-btn.active i {
+.grid-btn.active i,
+.list-btn.active i {
   color: #fff;
 }
 
@@ -5063,6 +5207,7 @@ label {
     top: 50%;
     left: 50%;
   }
+
   100% {
     transform: translate(-50%, -50%) scale(3);
     opacity: 0;

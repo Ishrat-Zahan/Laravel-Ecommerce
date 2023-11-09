@@ -34,11 +34,15 @@
 
     <link rel="stylesheet" href="{{ asset('assets/js/jquery-ui-1.13.2/jquery-ui.min.css') }}">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 
 </head>
 
 <style>
+    /* .........................CART BADGE................................... */
+
     .cart-badge {
         position: relative;
         display: inline-block;
@@ -65,10 +69,84 @@
         font-size: 12px;
         font-weight: bold;
         background-color: #f41068;
-        /* Replace with your desired color */
         color: white;
-        /* Replace with your desired color */
         border-radius: 50%;
+    }
+
+
+    /* .........................MULTI DROPDOWN.................................... */
+
+    .parent {
+        display: block;
+        position: relative;
+        float: left;
+        line-height: 30px;
+
+    }
+
+    .parent a {
+        margin: 10px;
+        color: #f41068;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #f41068;
+        padding: 5px;
+
+    }
+
+    .parent:hover>ul {
+        display: block;
+        position: absolute;
+    }
+
+    .child {
+        display: none;
+    }
+
+    .child li {
+        background-color: white;
+        line-height: 30px;
+        border-bottom: #CCC 1px solid;
+        border-right: #CCC 1px solid;
+        width: 200px;
+    }
+
+    .child li a {
+        color: #000000;
+    }
+
+    .child li a:hover {
+        color: #f41068;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0px;
+        min-width: 10em;
+    }
+
+    ul ul ul {
+        left: 100%;
+        top: 0;
+        margin-left: 1px;
+    }
+
+    li:hover {
+        background-color: #95B4CA;
+
+    }
+
+    .parent li:hover {
+        background-color: #F0F0F0;
+        color: #f41068;
+    }
+
+    .expand {
+        font-size: 12px;
+        float: right;
+        margin-right: 5px;
     }
 </style>
 
@@ -88,7 +166,7 @@
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg  navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <img src="{{ asset('assets/img/logo.png') }}" alt="">
@@ -97,57 +175,76 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+
+
+
+                    <ul id="menu">
+                        <li class="parent"><a href="#">Category <i class="fa-solid fa-caret-down"></i></a>
+                            <ul class="child">
+                                @foreach($categories as $category)
+                                <li class="parent"><a href="#">{{ $category->name }}<span class="expand">»</span></a>
+                                    <ul class="child">
+                                        @foreach($category->subcategories as $subcategory)
+                                        <li class="parent"><a href="#">{{ $subcategory->name }}<span class="expand">»</span></a>
+                                            <ul class="child">
+                                                @foreach($subcategory->subsubcategories as $subsubcategory)
+                                                <li><a href="#">{{ $subsubcategory->name }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    </ul>
+
+
                     <ul class="navbar-nav">
-                        <li><a href="{{route('/')}}">Home</a></li>
-                        <li><a href="#catagory">Category</a></li>
+                        <li><a href="{{ route('/') }}">Home</a></li>
                         <li><a href="#men">Men</a></li>
                         <li><a href="#women">Women</a></li>
-                        <li><a href="#latest">latest</a></li>
-
+                        <li><a href="#latest">Latest</a></li>
                         <li>
-                            <a href="{{ route('order.create') }} ">
+                            <a href="{{ route('order.create') }}">
                                 <div class="cart-badge">
                                     <span class="cart-icon">Cart</span>
                                     <span id="cartTotal" class="cart-count"></span>
                                 </div>
                             </a>
                         </li>
-
                         @if (Auth::check())
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu">
-
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <a class="dropdown-item" href="javascript:void(0)" onclick="event.preventDefault();this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </a>
                                 </form>
-
                             </div>
-                        </li> @else
-
-
+                        </li>
+                        @else
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                 Account
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{route('register')}}">Register</a>
-                                <a class="dropdown-item" href="{{route('login')}}">Login</a>
-
+                                <a class="dropdown-item" href="{{ route('register') }}">Register</a>
+                                <a class="dropdown-item" href="{{ route('login') }}">Login</a>
                             </div>
                         </li>
                         @endif
-
-
                     </ul>
+
                 </div>
             </div>
         </nav>
+
     </header>
     @yield('content');
 
